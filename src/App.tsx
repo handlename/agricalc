@@ -7,6 +7,7 @@ import { FamilyInput } from "./components/InputSection/FamilyInput";
 import { BonusInput } from "./components/InputSection/BonusInput";
 import { TotalScore } from "./components/ScoreDisplay/TotalScore";
 import { ScoreBreakdown } from "./components/ScoreDisplay/ScoreBreakdown";
+import { FixedTotalScore } from "./components/ScoreDisplay/FixedTotalScore";
 import { ResetButton } from "./components/Controls/ResetButton";
 import { CopyButton } from "./components/Controls/CopyButton";
 import "./App.css";
@@ -41,6 +42,7 @@ function App() {
             </div>
           </div>
         </main>
+        <FixedTotalScore />
       </div>
     </GameProvider>
   );
