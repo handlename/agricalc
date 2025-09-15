@@ -46,39 +46,50 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   };
 
   return (
-    <div className="input-group">
-      {label && (
-        <div className="input-label">
-          {icon}
-          {label}
+    <div className="input-group-with-grid">
+      <div className="input-group">
+        {label && (
+          <div className="input-label">
+            {icon}
+            {label}
+          </div>
+        )}
+        <div className="number-input-container">
+          <button
+            className="btn-adjust"
+            onClick={handleDecrement}
+            disabled={value <= min}
+            type="button"
+          >
+            −
+          </button>
+          <input
+            type="number"
+            className="number-input"
+            value={value}
+            onChange={handleInputChange}
+            min={min}
+            max={max}
+          />
+          <button
+            className="btn-adjust"
+            onClick={handleIncrement}
+            disabled={value >= max}
+            type="button"
+          >
+            +
+          </button>
+        </div>
+      </div>
+      {showGrid && (
+        <div className="grid-visualization-container">
+          <GridVisualization
+            current={value}
+            thresholds={gridThresholds}
+            maxDisplay={gridMaxDisplay}
+          />
         </div>
       )}
-      <div className="number-input-container">
-        <button
-          className="btn-adjust"
-          onClick={handleDecrement}
-          disabled={value <= min}
-          type="button"
-        >
-          −
-        </button>
-        <input
-          type="number"
-          className="number-input"
-          value={value}
-          onChange={handleInputChange}
-          min={min}
-          max={max}
-        />
-        <button
-          className="btn-adjust"
-          onClick={handleIncrement}
-          disabled={value >= max}
-          type="button"
-        >
-          +
-        </button>
-      </div>
     </div>
   );
 };
