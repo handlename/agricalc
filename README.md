@@ -1,69 +1,87 @@
-# React + TypeScript + Vite
+# AgriCalc - アグリコラ得点計算アプリ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+アグリコラリバイズドエディションのゲーム終了時得点計算を簡単・正確に行うためのWebアプリケーションです。
 
-Currently, two official plugins are available:
+## 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+このアプリは、ボードゲーム「アグリコラリバイズドエディション」の複雑な得点計算を自動化し、ゲーム終了後の計算時間を大幅に短縮します。スマートフォンでの使用に最適化されており、アイコン中心の直感的なUIでスムーズに操作できます。
 
-## Expanding the ESLint configuration
+## 主な機能
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **完全オフライン動作** - インターネット接続不要
+- **スマートフォン最適化** - タッチ操作に特化したUI
+- **アイコンベースデザイン** - 言語に依存しない視覚的な操作
+- **リアルタイム計算** - 入力と同時に得点を自動計算
+- **結果のテキストコピー** - 計算結果をワンタップでコピー可能
+- **単一ファイル配布** - HTMLファイル1つで完結
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 計算対象項目
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 農場要素
+- 畑の枚数
+- 牧場の枚数  
+- 未使用スペース
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 家畜・作物
+- 羊・猪・牛の数
+- 穀物・野菜の数
+
+### 家族・住居
+- 家族の人数
+- 粘土・石の部屋数
+
+### その他
+- 柵で囲まれた厩
+- カードボーナス点
+
+## 技術仕様
+
+- **フレームワーク**: React 18 + TypeScript
+- **ビルドツール**: Vite 5.x
+- **スタイリング**: CSS Modules
+- **アイコン**: インラインSVG
+- **配布形式**: 単一HTMLファイル
+
+## 開発・ビルド
+
+```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバー起動
+npm run dev
+
+# 本番ビルド（単一HTMLファイル生成）
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+ビルド後、`dist/index.html`が配布可能な単一ファイルとして生成されます。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 使用方法
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. 各項目のアイコンをタップして数値を入力
+2. `+`/`-`ボタンまたは直接入力で値を調整
+3. 得点が自動計算され、リアルタイムで表示
+4. 「Copy Results」ボタンで結果をクリップボードにコピー
+
+## ドキュメント
+
+詳細な仕様・設計については以下を参照してください：
+
+- **[REQUIREMENTS.md](./REQUIREMENTS.md)** - 要件定義書
+- **[DESIGN.md](./DESIGN.md)** - 技術設計書  
+- **[CALCULATION_RULES.md](./CALCULATION_RULES.md)** - 得点計算ルール
+
+## ライセンス
+
+MIT License
+
+## 対応ブラウザ
+
+- Chrome (最新版)
+- Safari (iOS 14以降)  
+- Firefox (最新版)
+
+---
+
+**アグリコラリバイズドエディション**の得点計算をより楽しく、より正確に。
