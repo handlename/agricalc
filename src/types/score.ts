@@ -11,7 +11,9 @@ export interface ScoreBreakdown {
   clayRooms: number;
   stoneRooms: number;
   fencedStables: number;
-  cardBonus: number;
+  beggingCards: number;
+  bonusPoints: number;
+  penaltyPoints: number;
 }
 
 export interface ScoreSummary {

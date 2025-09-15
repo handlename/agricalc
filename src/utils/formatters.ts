@@ -1,5 +1,5 @@
-import { GameState } from '../types/game';
-import { ScoreSummary } from '../types/score';
+import { GameState } from "../types/game";
+import { ScoreSummary } from "../types/score";
 
 export const formatScore = (score: number): string => {
   if (score > 0) {
@@ -8,39 +8,44 @@ export const formatScore = (score: number): string => {
   return score.toString();
 };
 
-export const formatScoreToText = (state: GameState, scoreSummary: ScoreSummary): string => {
+export const formatScoreToText = (
+  state: GameState,
+  scoreSummary: ScoreSummary,
+): string => {
   const { breakdown, total } = scoreSummary;
 
   const lines = [
-    '=== Agricola Score ===',
-    '',
-    '--- Farm ---',
+    "=== Agricola Score ===",
+    "",
+    "--- Farm ---",
     `Fields (${state.farm.fields}): ${formatScore(breakdown.fields)}`,
     `Pastures (${state.farm.pastures}): ${formatScore(breakdown.pastures)}`,
     `Unused Spaces (${state.farm.unusedSpaces}): ${formatScore(breakdown.unusedSpaces)}`,
-    '',
-    '--- Livestock ---',
+    "",
+    "--- Livestock ---",
     `Sheep (${state.livestock.sheep}): ${formatScore(breakdown.sheep)}`,
     `Boars (${state.livestock.boars}): ${formatScore(breakdown.boars)}`,
     `Cattle (${state.livestock.cattle}): ${formatScore(breakdown.cattle)}`,
-    '',
-    '--- Crops ---',
+    "",
+    "--- Crops ---",
     `Grain (${state.crops.grain}): ${formatScore(breakdown.grain)}`,
     `Vegetables (${state.crops.vegetables}): ${formatScore(breakdown.vegetables)}`,
-    '',
-    '--- Family & Home ---',
+    "",
+    "--- Family & Home ---",
     `Family Members (${state.family.familyMembers}): ${formatScore(breakdown.familyMembers)}`,
     `Clay Rooms (${state.family.clayRooms}): ${formatScore(breakdown.clayRooms)}`,
     `Stone Rooms (${state.family.stoneRooms}): ${formatScore(breakdown.stoneRooms)}`,
-    '',
-    '--- Bonus ---',
+    "",
+    "--- Bonus ---",
     `Fenced Stables (${state.others.fencedStables}): ${formatScore(breakdown.fencedStables)}`,
-    `Card Bonus: ${formatScore(breakdown.cardBonus)}`,
-    '',
-    '==================',
+    `Begging Cards (${state.others.beggingCards}): ${formatScore(breakdown.beggingCards)}`,
+    `Bonus Points (${state.others.bonusPoints}): ${formatScore(breakdown.bonusPoints)}`,
+    `Penalty Points (${state.others.penaltyPoints}): ${formatScore(breakdown.penaltyPoints)}`,
+    "",
+    "==================",
     `Total Score: ${total}`,
-    '==================',
+    "==================",
   ];
 
-  return lines.join('\n');
+  return lines.join("\n");
 };
