@@ -303,3 +303,115 @@ h6 {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* Progress Bar Styles */
+.progress-container {
+    margin: var(--spacing-xs) 0;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.progress-score {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.next-score {
+    color: var(--success-color);
+    font-weight: 400;
+}
+
+.progress-bar {
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--accent-color),
+        var(--primary-color)
+    );
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.progress-fill.maxed {
+    background: linear-gradient(90deg, var(--success-color), #2d5f2f);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+}
+
+.current-count {
+    font-weight: 600;
+}
+
+.remaining-count {
+    font-style: italic;
+    color: var(--warning-color);
+}
+
+.next-threshold {
+    font-weight: 600;
+}
+
+.progress-maxed .progress-info {
+    justify-content: center;
+}
+
+.maxed-text {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.progress-item {
+    padding: var(--spacing-sm);
+    background: var(--card-background);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.score-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+}
+
+@media (max-width: 480px) {
+    .progress-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+
+    .progress-info {
+        font-size: 10px;
+    }
+
+    .progress-item {
+        padding: var(--spacing-xs);
+    }
+}
