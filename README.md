@@ -6,6 +6,12 @@
 
 このアプリは、ボードゲーム「アグリコラリバイズドエディション」の複雑な得点計算を自動化し、ゲーム終了後の計算時間を大幅に短縮します。スマートフォンでの使用に最適化されており、アイコン中心の直感的なUIでスムーズに操作できます。
 
+## 🌐 オンライン版
+
+**[https://handlename.github.io/agricalc/](https://handlename.github.io/agricalc/)**
+
+GitHub Pagesで公開されているため、ブラウザでアクセスするだけですぐに使用できます。
+
 ## 主な機能
 
 - **完全オフライン動作** - インターネット接続不要
@@ -56,6 +62,20 @@ npm run build
 ```
 
 ビルド後、`dist/index.html`が配布可能な単一ファイルとして生成されます。
+
+## デプロイメント
+
+このプロジェクトは GitHub Pages で自動デプロイされます。
+
+### 自動デプロイ
+
+- `main` ブランチへのプッシュで自動的にビルド・デプロイされます
+- GitHub Actions ワークフロー（`.github/workflows/deploy.yml`）により自動化
+- ビルド成果物は GitHub Pages にホストされます
+
+### 手動デプロイ
+
+GitHub リポジトリの Actions タブから "Deploy to GitHub Pages" ワークフローを手動実行することも可能です。
 
 ## 使用方法
 
