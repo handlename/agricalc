@@ -1,8 +1,6 @@
 import React from "react";
 import { useGame } from "../../hooks/GameContext";
 import { formatScore } from "../../utils/formatters";
-import { ProgressBar } from "./ProgressBar";
-import { getAllProgressInfo } from "../../utils/progressUtils";
 import {
   FieldIcon,
   PastureIcon,
@@ -22,69 +20,33 @@ import {
 } from "../Icons";
 
 export const ScoreBreakdown: React.FC = () => {
-  const { state, score } = useGame();
+  const { score } = useGame();
   const { breakdown } = score;
-  const progressInfo = getAllProgressInfo(state);
 
-  // 段階的得点項目
-  const progressItems = [
+  const scoreItems = [
+    { label: "Fields", value: breakdown.fields, icon: <FieldIcon size={16} /> },
     {
-      key: "fields",
-      label: "Fields",
-      value: breakdown.fields,
-      icon: <FieldIcon size={16} />,
-      progress: progressInfo.fields,
-    },
-    {
-      key: "pastures",
       label: "Pastures",
       value: breakdown.pastures,
       icon: <PastureIcon size={16} />,
-      progress: progressInfo.pastures,
     },
-    {
-      key: "sheep",
-      label: "Sheep",
-      value: breakdown.sheep,
-      icon: <SheepIcon size={16} />,
-      progress: progressInfo.sheep,
-    },
-    {
-      key: "boars",
-      label: "Boars",
-      value: breakdown.boars,
-      icon: <BoarIcon size={16} />,
-      progress: progressInfo.boars,
-    },
-    {
-      key: "cattle",
-      label: "Cattle",
-      value: breakdown.cattle,
-      icon: <CattleIcon size={16} />,
-      progress: progressInfo.cattle,
-    },
-    {
-      key: "grain",
-      label: "Grain",
-      value: breakdown.grain,
-      icon: <GrainIcon size={16} />,
-      progress: progressInfo.grain,
-    },
-    {
-      key: "vegetables",
-      label: "Vegetables",
-      value: breakdown.vegetables,
-      icon: <VegetableIcon size={16} />,
-      progress: progressInfo.vegetables,
-    },
-  ];
-
-  // 固定得点項目
-  const fixedScoreItems = [
     {
       label: "Unused",
       value: breakdown.unusedSpaces,
       icon: <UnusedSpaceIcon size={16} />,
+    },
+    { label: "Sheep", value: breakdown.sheep, icon: <SheepIcon size={16} /> },
+    { label: "Boars", value: breakdown.boars, icon: <BoarIcon size={16} /> },
+    {
+      label: "Cattle",
+      value: breakdown.cattle,
+      icon: <CattleIcon size={16} />,
+    },
+    { label: "Grain", value: breakdown.grain, icon: <GrainIcon size={16} /> },
+    {
+      label: "Vegetables",
+      value: breakdown.vegetables,
+      icon: <VegetableIcon size={16} />,
     },
     {
       label: "Family",
@@ -125,30 +87,8 @@ export const ScoreBreakdown: React.FC = () => {
 
   return (
     <div className="score-breakdown">
-      {progressItems.map((item) => (
-        <div key={item.key} className="score-item progress-item">
-          <div className="score-item-header">
-            <div className="score-item-label">
-              {item.icon}
-              {item.label}
-            </div>
-            <div
-              className={`score-item-value ${item.value < 0 ? "negative" : item.value > 0 ? "positive" : ""}`}
-            >
-              {formatScore(item.value)}
-            </div>
-          </div>
-          <ProgressBar
-            current={item.progress.current}
-            thresholds={item.progress.thresholds}
-            currentScore={item.progress.currentScore}
-            maxScore={item.progress.maxScore}
-            label=""
-          />
-        </div>
-      ))}
-      {fixedScoreItems.map((item, index) => (
-        <div key={`fixed-${index}`} className="score-item">
+      {scoreItems.map((item, index) => (
+        <div key={index} className="score-item">
           <div className="score-item-label">
             {item.icon}
             {item.label}

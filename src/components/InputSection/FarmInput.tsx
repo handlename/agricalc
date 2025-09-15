@@ -1,7 +1,9 @@
-import React from 'react';
-import { NumberInput } from '../NumberInput';
-import { FieldIcon, PastureIcon, UnusedSpaceIcon } from '../Icons';
-import { useGame } from '../../hooks/GameContext';
+import React from "react";
+import { NumberInput } from "../NumberInput";
+import { FieldIcon, PastureIcon, UnusedSpaceIcon } from "../Icons";
+import { GridVisualization } from "../Visualization/GridVisualization";
+import { useGame } from "../../hooks/GameContext";
+import { fieldThresholds, pastureThresholds } from "../../utils/progressUtils";
 
 export const FarmInput: React.FC = () => {
   const { state, dispatch } = useGame();
@@ -11,23 +13,39 @@ export const FarmInput: React.FC = () => {
       <h2 className="section-title">Farm</h2>
       <NumberInput
         value={state.farm.fields}
-        onChange={(value) => dispatch({ type: 'UPDATE_FARM', field: 'fields', value })}
+        onChange={(value) =>
+          dispatch({ type: "UPDATE_FARM", field: "fields", value })
+        }
         min={0}
         max={15}
         label="Fields"
         icon={<FieldIcon size={20} />}
       />
+      <GridVisualization
+        current={state.farm.fields}
+        thresholds={fieldThresholds.map((t) => t.value)}
+        maxDisplay={8}
+      />
       <NumberInput
         value={state.farm.pastures}
-        onChange={(value) => dispatch({ type: 'UPDATE_FARM', field: 'pastures', value })}
+        onChange={(value) =>
+          dispatch({ type: "UPDATE_FARM", field: "pastures", value })
+        }
         min={0}
         max={15}
         label="Pastures"
         icon={<PastureIcon size={20} />}
       />
+      <GridVisualization
+        current={state.farm.pastures}
+        thresholds={pastureThresholds.map((t) => t.value)}
+        maxDisplay={6}
+      />
       <NumberInput
         value={state.farm.unusedSpaces}
-        onChange={(value) => dispatch({ type: 'UPDATE_FARM', field: 'unusedSpaces', value })}
+        onChange={(value) =>
+          dispatch({ type: "UPDATE_FARM", field: "unusedSpaces", value })
+        }
         min={0}
         max={15}
         label="Unused"

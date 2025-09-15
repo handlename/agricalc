@@ -304,118 +304,6 @@ h6 {
     }
 }
 
-/* Progress Bar Styles */
-.progress-container {
-    margin: var(--spacing-xs) 0;
-}
-
-.progress-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-xs);
-}
-
-.progress-label {
-    font-size: var(--font-size-xs);
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.progress-score {
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.next-score {
-    color: var(--success-color);
-    font-weight: 400;
-}
-
-.progress-bar {
-    height: 6px;
-    background: var(--border-color);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: var(--spacing-xs);
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        var(--accent-color),
-        var(--primary-color)
-    );
-    border-radius: 3px;
-    transition: width 0.3s ease;
-}
-
-.progress-fill.maxed {
-    background: linear-gradient(90deg, var(--success-color), #2d5f2f);
-}
-
-.progress-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: var(--font-size-xs);
-    color: var(--text-secondary);
-}
-
-.current-count {
-    font-weight: 600;
-}
-
-.remaining-count {
-    font-style: italic;
-    color: var(--warning-color);
-}
-
-.next-threshold {
-    font-weight: 600;
-}
-
-.progress-maxed .progress-info {
-    justify-content: center;
-}
-
-.maxed-text {
-    color: var(--success-color);
-    font-weight: 600;
-}
-
-.progress-item {
-    padding: var(--spacing-sm);
-    background: var(--card-background);
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-color);
-}
-
-.score-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-xs);
-}
-
-@media (max-width: 480px) {
-    .progress-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--spacing-xs);
-    }
-
-    .progress-info {
-        font-size: 10px;
-    }
-
-    .progress-item {
-        padding: var(--spacing-xs);
-    }
-}
-
 /* Fixed Total Score Styles */
 .fixed-total-score {
     position: fixed;
@@ -490,5 +378,107 @@ h6 {
 
     .fixed-total-score.static .fixed-score-value {
         font-size: var(--font-size-lg);
+    }
+}
+
+/* Grid Visualization Styles */
+.grid-visualization {
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-sm);
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    max-width: 320px;
+}
+
+.grid-cell {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 3px;
+    position: relative;
+    background: var(--card-background);
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.grid-cell.filled {
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(74, 95, 58, 0.3);
+    transform: scale(1.05);
+}
+
+.grid-cell.filled.max-achieved {
+    background: linear-gradient(135deg, var(--success-color), #2d5f2f);
+    border-color: var(--success-color);
+    box-shadow: 0 2px 6px rgba(82, 196, 26, 0.4);
+}
+
+.grid-cell.threshold {
+    border-width: 3px;
+    border-color: var(--accent-color);
+    border-style: dashed;
+    background: rgba(212, 163, 115, 0.1);
+}
+
+.grid-cell.threshold.filled {
+    border-color: var(--warning-color);
+    border-style: solid;
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--warning-color)
+    );
+}
+
+.threshold-marker {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.grid-cell.filled .threshold-marker {
+    background: var(--warning-color);
+}
+
+@media (max-width: 480px) {
+    .grid-cell {
+        width: 16px;
+        height: 16px;
+        border-width: 1px;
+    }
+
+    .grid-cell.threshold {
+        border-width: 2px;
+    }
+
+    .grid-container {
+        max-width: 300px;
+        gap: 2px;
+    }
+
+    .threshold-marker {
+        width: 6px;
+        height: 6px;
+        top: -3px;
+        right: -3px;
+        border-width: 1px;
     }
 }
