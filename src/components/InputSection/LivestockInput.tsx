@@ -2,7 +2,7 @@ import React from "react";
 import { NumberInput } from "../NumberInput";
 import { SheepIcon, BoarIcon, CattleIcon } from "../Icons";
 
-import { useGame } from "../../hooks/GameContext";
+import { useGame } from "../../hooks/useGame";
 import {
   sheepThresholds,
   boarThresholds,
@@ -26,7 +26,6 @@ export const LivestockInput: React.FC = () => {
         icon={<SheepIcon size={20} />}
         showGrid={true}
         gridThresholds={sheepThresholds.map((t) => t.value)}
-        gridMaxDisplay={10}
       />
       <NumberInput
         value={state.livestock.boars}
@@ -39,7 +38,6 @@ export const LivestockInput: React.FC = () => {
         icon={<BoarIcon size={20} />}
         showGrid={true}
         gridThresholds={boarThresholds.map((t) => t.value)}
-        gridMaxDisplay={8}
       />
       <NumberInput
         value={state.livestock.cattle}
@@ -52,7 +50,6 @@ export const LivestockInput: React.FC = () => {
         icon={<CattleIcon size={20} />}
         showGrid={true}
         gridThresholds={cattleThresholds.map((t) => t.value)}
-        gridMaxDisplay={8}
       />
     </div>
   );

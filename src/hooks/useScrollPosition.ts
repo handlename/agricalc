@@ -20,7 +20,7 @@ export const useScrollPosition = (): ScrollPosition => {
       const currentScrollY = window.scrollY;
       const isAtTop = currentScrollY < 10; // 10px以下を「最上部」とみなす
 
-      setScrollPosition((prev) => ({
+      setScrollPosition(() => ({
         scrollY: currentScrollY,
         isAtTop,
         isScrolling: true,

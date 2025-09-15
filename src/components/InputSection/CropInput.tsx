@@ -1,7 +1,7 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
 import { GrainIcon, VegetableIcon } from "../Icons";
-import { useGame } from "../../hooks/GameContext";
+import { useGame } from "../../hooks/useGame";
 import {
   grainThresholds,
   vegetableThresholds,
@@ -24,7 +24,6 @@ export const CropInput: React.FC = () => {
         icon={<GrainIcon size={20} />}
         showGrid={true}
         gridThresholds={grainThresholds.map((t) => t.value)}
-        gridMaxDisplay={10}
       />
       <NumberInput
         value={state.crops.vegetables}
@@ -37,7 +36,6 @@ export const CropInput: React.FC = () => {
         icon={<VegetableIcon size={20} />}
         showGrid={true}
         gridThresholds={vegetableThresholds.map((t) => t.value)}
-        gridMaxDisplay={6}
       />
     </div>
   );

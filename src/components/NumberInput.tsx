@@ -10,7 +10,6 @@ interface NumberInputProps {
   icon?: React.ReactNode;
   showGrid?: boolean;
   gridThresholds?: number[];
-  gridMaxDisplay?: number;
 }
 
 export const NumberInput: React.FC<NumberInputProps> = ({
@@ -22,7 +21,6 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   icon,
   showGrid = false,
   gridThresholds = [],
-  gridMaxDisplay = 15,
 }) => {
   const handleDecrement = () => {
     if (value > min) {
@@ -83,11 +81,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
       </div>
       {showGrid && (
         <div className="grid-visualization-container">
-          <GridVisualization
-            current={value}
-            thresholds={gridThresholds}
-            maxDisplay={gridMaxDisplay}
-          />
+          <GridVisualization current={value} thresholds={gridThresholds} />
         </div>
       )}
     </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useGame } from '../../hooks/GameContext';
+import React from "react";
+import { useGame } from "../../hooks/useGame";
 
 export const TotalScore: React.FC = () => {
   const { score } = useGame();

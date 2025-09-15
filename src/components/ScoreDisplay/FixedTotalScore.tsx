@@ -1,7 +1,7 @@
-import React from 'react';
-import { useGame } from '../../hooks/GameContext';
-import { useScrollPosition } from '../../hooks/useScrollPosition';
-import { formatScore } from '../../utils/formatters';
+import React from "react";
+import { useGame } from "../../hooks/useGame";
+import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { formatScore } from "../../utils/formatters";
 
 export const FixedTotalScore: React.FC = () => {
   const { score } = useGame();
@@ -13,12 +13,12 @@ export const FixedTotalScore: React.FC = () => {
   }
 
   return (
-    <div className={`fixed-total-score ${isScrolling ? 'scrolling' : 'static'}`}>
+    <div
+      className={`fixed-total-score ${isScrolling ? "scrolling" : "static"}`}
+    >
       <div className="fixed-score-content">
         <span className="fixed-score-label">Total</span>
-        <span className="fixed-score-value">
-          {formatScore(score.total)}
-        </span>
+        <span className="fixed-score-value">{formatScore(score.total)}</span>
       </div>
     </div>
   );

@@ -3,14 +3,13 @@ import React from "react";
 interface GridVisualizationProps {
   current: number;
   thresholds: number[];
-  maxDisplay?: number;
+
   className?: string;
 }
 
 export const GridVisualization: React.FC<GridVisualizationProps> = ({
   current,
   thresholds,
-  maxDisplay = 15,
   className = "",
 }) => {
   // 安全な閾値配列の確保

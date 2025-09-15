@@ -1,5 +1,5 @@
 import React from "react";
-import { useGame } from "../../hooks/GameContext";
+import { useGame } from "../../hooks/useGame";
 import { formatScore } from "../../utils/formatters";
 import {
   FieldIcon,

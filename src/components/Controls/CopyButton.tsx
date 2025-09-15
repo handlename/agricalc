@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useGame } from '../../hooks/GameContext';
-import { formatScoreToText } from '../../utils/formatters';
+import React, { useState } from "react";
+import { useGame } from "../../hooks/useGame";
+import { formatScoreToText } from "../../utils/formatters";
 
 export const CopyButton: React.FC = () => {
   const { state, score } = useGame();
@@ -13,15 +13,15 @@ export const CopyButton: React.FC = () => {
       await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
+    } catch {
       // Fallback for older browsers
-      const textArea = document.createElement('textarea');
+      const textArea = document.createElement("textarea");
       textArea.value = text;
-      textArea.style.position = 'fixed';
-      textArea.style.opacity = '0';
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
       document.body.appendChild(textArea);
       textArea.select();
-      document.execCommand('copy');
+      document.execCommand("copy");
       document.body.removeChild(textArea);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -30,7 +30,7 @@ export const CopyButton: React.FC = () => {
 
   return (
     <button className="btn-primary" onClick={handleCopy}>
-      {copied ? 'Copied!' : 'Copy Score'}
+      {copied ? "Copied!" : "Copy Score"}
     </button>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
 import { StableIcon, BeggingCardIcon, PlusIcon, MinusIcon } from "../Icons";
-import { useGame } from "../../hooks/GameContext";
+import { useGame } from "../../hooks/useGame";
 
 export const BonusInput: React.FC = () => {
   const { state, dispatch } = useGame();

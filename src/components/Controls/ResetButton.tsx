@@ -1,12 +1,12 @@
-import React from 'react';
-import { useGame } from '../../hooks/GameContext';
+import React from "react";
+import { useGame } from "../../hooks/useGame";
 
 export const ResetButton: React.FC = () => {
   const { dispatch } = useGame();
 
   const handleReset = () => {
-    if (window.confirm('Reset all values?')) {
-      dispatch({ type: 'RESET_ALL' });
+    if (window.confirm("Reset all values?")) {
+      dispatch({ type: "RESET_ALL" });
     }
   };
 

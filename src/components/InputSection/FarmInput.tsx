@@ -1,7 +1,7 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
 import { FieldIcon, PastureIcon, UnusedSpaceIcon } from "../Icons";
-import { useGame } from "../../hooks/GameContext";
+import { useGame } from "../../hooks/useGame";
 import { fieldThresholds, pastureThresholds } from "../../utils/progressUtils";
 
 export const FarmInput: React.FC = () => {
@@ -21,7 +21,6 @@ export const FarmInput: React.FC = () => {
         icon={<FieldIcon size={20} />}
         showGrid={true}
         gridThresholds={fieldThresholds.map((t) => t.value)}
-        gridMaxDisplay={8}
       />
       <NumberInput
         value={state.farm.pastures}
@@ -34,7 +33,6 @@ export const FarmInput: React.FC = () => {
         icon={<PastureIcon size={20} />}
         showGrid={true}
         gridThresholds={pastureThresholds.map((t) => t.value)}
-        gridMaxDisplay={6}
       />
       <NumberInput
         value={state.farm.unusedSpaces}
