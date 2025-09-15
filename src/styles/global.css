@@ -120,6 +120,20 @@ h6 {
     margin-bottom: var(--spacing-md);
 }
 
+.input-group-with-grid {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.grid-visualization-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+}
+
 .input-label {
     display: flex;
     align-items: center;
@@ -287,6 +301,16 @@ h6 {
         align-items: stretch;
     }
 
+    .input-group-with-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-sm);
+    }
+
+    .grid-visualization-container {
+        margin-left: var(--spacing-md);
+    }
+
     .input-label {
         min-width: auto;
     }
@@ -383,8 +407,6 @@ h6 {
 
 /* Grid Visualization Styles */
 .grid-visualization {
-    margin-top: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
     padding: var(--spacing-xs);
     background: rgba(255, 255, 255, 0.5);
     border-radius: var(--radius-sm);
@@ -460,8 +482,8 @@ h6 {
 
 @media (max-width: 480px) {
     .grid-cell {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         border-width: 1px;
     }
 
@@ -470,15 +492,19 @@ h6 {
     }
 
     .grid-container {
-        max-width: 300px;
-        gap: 2px;
+        max-width: 250px;
+        gap: 1px;
+    }
+
+    .grid-visualization {
+        padding: 2px;
     }
 
     .threshold-marker {
-        width: 6px;
-        height: 6px;
-        top: -3px;
-        right: -3px;
+        width: 5px;
+        height: 5px;
+        top: -2px;
+        right: -2px;
         border-width: 1px;
     }
 }

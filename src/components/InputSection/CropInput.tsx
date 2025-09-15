@@ -1,7 +1,6 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
 import { GrainIcon, VegetableIcon } from "../Icons";
-import { GridVisualization } from "../Visualization/GridVisualization";
 import { useGame } from "../../hooks/GameContext";
 import {
   grainThresholds,
@@ -23,11 +22,9 @@ export const CropInput: React.FC = () => {
         max={99}
         label="Grain"
         icon={<GrainIcon size={20} />}
-      />
-      <GridVisualization
-        current={state.crops.grain}
-        thresholds={grainThresholds.map((t) => t.value)}
-        maxDisplay={10}
+        showGrid={true}
+        gridThresholds={grainThresholds.map((t) => t.value)}
+        gridMaxDisplay={10}
       />
       <NumberInput
         value={state.crops.vegetables}
@@ -38,11 +35,9 @@ export const CropInput: React.FC = () => {
         max={99}
         label="Vegetables"
         icon={<VegetableIcon size={20} />}
-      />
-      <GridVisualization
-        current={state.crops.vegetables}
-        thresholds={vegetableThresholds.map((t) => t.value)}
-        maxDisplay={6}
+        showGrid={true}
+        gridThresholds={vegetableThresholds.map((t) => t.value)}
+        gridMaxDisplay={6}
       />
     </div>
   );

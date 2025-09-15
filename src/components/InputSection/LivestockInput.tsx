@@ -1,7 +1,7 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
 import { SheepIcon, BoarIcon, CattleIcon } from "../Icons";
-import { GridVisualization } from "../Visualization/GridVisualization";
+
 import { useGame } from "../../hooks/GameContext";
 import {
   sheepThresholds,
@@ -24,11 +24,9 @@ export const LivestockInput: React.FC = () => {
         max={99}
         label="Sheep"
         icon={<SheepIcon size={20} />}
-      />
-      <GridVisualization
-        current={state.livestock.sheep}
-        thresholds={sheepThresholds.map((t) => t.value)}
-        maxDisplay={10}
+        showGrid={true}
+        gridThresholds={sheepThresholds.map((t) => t.value)}
+        gridMaxDisplay={10}
       />
       <NumberInput
         value={state.livestock.boars}
@@ -39,11 +37,9 @@ export const LivestockInput: React.FC = () => {
         max={99}
         label="Boars"
         icon={<BoarIcon size={20} />}
-      />
-      <GridVisualization
-        current={state.livestock.boars}
-        thresholds={boarThresholds.map((t) => t.value)}
-        maxDisplay={8}
+        showGrid={true}
+        gridThresholds={boarThresholds.map((t) => t.value)}
+        gridMaxDisplay={8}
       />
       <NumberInput
         value={state.livestock.cattle}
@@ -54,11 +50,9 @@ export const LivestockInput: React.FC = () => {
         max={99}
         label="Cattle"
         icon={<CattleIcon size={20} />}
-      />
-      <GridVisualization
-        current={state.livestock.cattle}
-        thresholds={cattleThresholds.map((t) => t.value)}
-        maxDisplay={8}
+        showGrid={true}
+        gridThresholds={cattleThresholds.map((t) => t.value)}
+        gridMaxDisplay={8}
       />
     </div>
   );

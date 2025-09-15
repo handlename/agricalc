@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface GridVisualizationProps {
   current: number;
@@ -11,10 +11,11 @@ export const GridVisualization: React.FC<GridVisualizationProps> = ({
   current,
   thresholds,
   maxDisplay = 15,
-  className = ''
+  className = "",
 }) => {
-  // 表示する最大のマス目数を決定
-  const displayMax = Math.min(maxDisplay, Math.max(current + 5, thresholds[thresholds.length - 1] || 10));
+  // 表示する最大のマス目数を決定（最大得点の閾値まで）
+  const maxThreshold = thresholds[thresholds.length - 1] || 10;
+  const displayMax = maxThreshold;
 
   // マス目を生成
   const grids = Array.from({ length: displayMax }, (_, index) => {
@@ -33,7 +34,7 @@ export const GridVisualization: React.FC<GridVisualizationProps> = ({
       value,
       isFilled,
       isThreshold,
-      isMaxAchieved
+      isMaxAchieved,
     };
   });
 
@@ -45,15 +46,13 @@ export const GridVisualization: React.FC<GridVisualizationProps> = ({
             key={index}
             className={`
               grid-cell
-              ${grid.isFilled ? 'filled' : 'empty'}
-              ${grid.isThreshold ? 'threshold' : ''}
-              ${grid.isMaxAchieved && grid.isFilled ? 'max-achieved' : ''}
+              ${grid.isFilled ? "filled" : "empty"}
+              ${grid.isThreshold ? "threshold" : ""}
+              ${grid.isMaxAchieved && grid.isFilled ? "max-achieved" : ""}
             `.trim()}
-            title={`${grid.value}${grid.isThreshold ? ' (score change)' : ''}`}
+            title={`${grid.value}${grid.isThreshold ? " (score change)" : ""}`}
           >
-            {grid.isThreshold && (
-              <div className="threshold-marker" />
-            )}
+            {grid.isThreshold && <div className="threshold-marker" />}
           </div>
         ))}
       </div>

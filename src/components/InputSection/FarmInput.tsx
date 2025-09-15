@@ -1,7 +1,6 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
 import { FieldIcon, PastureIcon, UnusedSpaceIcon } from "../Icons";
-import { GridVisualization } from "../Visualization/GridVisualization";
 import { useGame } from "../../hooks/GameContext";
 import { fieldThresholds, pastureThresholds } from "../../utils/progressUtils";
 
@@ -20,11 +19,9 @@ export const FarmInput: React.FC = () => {
         max={15}
         label="Fields"
         icon={<FieldIcon size={20} />}
-      />
-      <GridVisualization
-        current={state.farm.fields}
-        thresholds={fieldThresholds.map((t) => t.value)}
-        maxDisplay={8}
+        showGrid={true}
+        gridThresholds={fieldThresholds.map((t) => t.value)}
+        gridMaxDisplay={8}
       />
       <NumberInput
         value={state.farm.pastures}
@@ -35,11 +32,9 @@ export const FarmInput: React.FC = () => {
         max={15}
         label="Pastures"
         icon={<PastureIcon size={20} />}
-      />
-      <GridVisualization
-        current={state.farm.pastures}
-        thresholds={pastureThresholds.map((t) => t.value)}
-        maxDisplay={6}
+        showGrid={true}
+        gridThresholds={pastureThresholds.map((t) => t.value)}
+        gridMaxDisplay={6}
       />
       <NumberInput
         value={state.farm.unusedSpaces}
