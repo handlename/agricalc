@@ -9,7 +9,7 @@ export const ShareImageButton: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "shared" | "copied">("idle");
 
   const handleShare = async () => {
-    const canvas = generateScoreImage(state, score, language);
+    const canvas = await generateScoreImage(state, score, language);
     const blob = await canvasToBlob(canvas);
     const file = new File([blob], "agricalc-score.png", { type: "image/png" });
 
