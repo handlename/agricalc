@@ -50,6 +50,9 @@ export const translations = {
     // Controls
     copyScore: "Copy Score",
     copied: "Copied!",
+    shareImage: "Share as Image",
+    shared: "Shared!",
+    copiedImage: "Image Copied!",
     resetAll: "Reset All",
     resetConfirm: "Reset all values?",
 
@@ -119,6 +122,9 @@ export const translations = {
     // Controls
     copyScore: "スコアをコピー",
     copied: "コピーしました！",
+    shareImage: "画像でシェア",
+    shared: "シェアしました！",
+    copiedImage: "画像をコピーしました！",
     resetAll: "リセット",
     resetConfirm: "すべての値をリセットしますか？",
 
