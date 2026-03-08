@@ -3,6 +3,7 @@ import { NumberInput } from "../NumberInput";
 import { SheepIcon, BoarIcon, CattleIcon } from "../Icons";
 
 import { useGame } from "../../hooks/useGame";
+import { useLanguage } from "../../i18n/LanguageContext";
 import {
   sheepThresholds,
   boarThresholds,
@@ -11,10 +12,11 @@ import {
 
 export const LivestockInput: React.FC = () => {
   const { state, dispatch } = useGame();
+  const { t } = useLanguage();
 
   return (
     <div className="card">
-      <h2 className="section-title">Livestock</h2>
+      <h2 className="section-title">{t("livestock")}</h2>
       <NumberInput
         value={state.livestock.sheep}
         onChange={(value) =>
@@ -22,7 +24,7 @@ export const LivestockInput: React.FC = () => {
         }
         min={0}
         max={99}
-        label="Sheep"
+        label={t("sheep")}
         icon={<SheepIcon size={20} />}
         showGrid={true}
         gridThresholds={sheepThresholds.map((t) => t.value)}
@@ -34,7 +36,7 @@ export const LivestockInput: React.FC = () => {
         }
         min={0}
         max={99}
-        label="Boars"
+        label={t("boars")}
         icon={<BoarIcon size={20} />}
         showGrid={true}
         gridThresholds={boarThresholds.map((t) => t.value)}
@@ -46,7 +48,7 @@ export const LivestockInput: React.FC = () => {
         }
         min={0}
         max={99}
-        label="Cattle"
+        label={t("cattle")}
         icon={<CattleIcon size={20} />}
         showGrid={true}
         gridThresholds={cattleThresholds.map((t) => t.value)}

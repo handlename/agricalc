@@ -2,13 +2,15 @@ import React from "react";
 import { NumberInput } from "../NumberInput";
 import { FamilyIcon, ClayRoomIcon, StoneRoomIcon } from "../Icons";
 import { useGame } from "../../hooks/useGame";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 export const FamilyInput: React.FC = () => {
   const { state, dispatch } = useGame();
+  const { t } = useLanguage();
 
   return (
     <div className="card">
-      <h2 className="section-title">Family & Home</h2>
+      <h2 className="section-title">{t("familyAndHome")}</h2>
       <NumberInput
         value={state.family.familyMembers}
         onChange={(value) =>
@@ -16,7 +18,7 @@ export const FamilyInput: React.FC = () => {
         }
         min={2}
         max={5}
-        label="Family"
+        label={t("family")}
         icon={<FamilyIcon size={20} />}
       />
       <NumberInput
@@ -26,7 +28,7 @@ export const FamilyInput: React.FC = () => {
         }
         min={0}
         max={15}
-        label="Clay Rooms"
+        label={t("clayRooms")}
         icon={<ClayRoomIcon size={20} />}
       />
       <NumberInput
@@ -36,7 +38,7 @@ export const FamilyInput: React.FC = () => {
         }
         min={0}
         max={15}
-        label="Stone Rooms"
+        label={t("stoneRooms")}
         icon={<StoneRoomIcon size={20} />}
       />
     </div>

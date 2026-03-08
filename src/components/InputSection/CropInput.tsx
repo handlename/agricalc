@@ -2,6 +2,7 @@ import React from "react";
 import { NumberInput } from "../NumberInput";
 import { GrainIcon, VegetableIcon } from "../Icons";
 import { useGame } from "../../hooks/useGame";
+import { useLanguage } from "../../i18n/LanguageContext";
 import {
   grainThresholds,
   vegetableThresholds,
@@ -9,10 +10,11 @@ import {
 
 export const CropInput: React.FC = () => {
   const { state, dispatch } = useGame();
+  const { t } = useLanguage();
 
   return (
     <div className="card">
-      <h2 className="section-title">Crops</h2>
+      <h2 className="section-title">{t("crops")}</h2>
       <NumberInput
         value={state.crops.grain}
         onChange={(value) =>
@@ -20,7 +22,7 @@ export const CropInput: React.FC = () => {
         }
         min={0}
         max={99}
-        label="Grain"
+        label={t("grain")}
         icon={<GrainIcon size={20} />}
         showGrid={true}
         gridThresholds={grainThresholds.map((t) => t.value)}
@@ -32,7 +34,7 @@ export const CropInput: React.FC = () => {
         }
         min={0}
         max={99}
-        label="Vegetables"
+        label={t("vegetables")}
         icon={<VegetableIcon size={20} />}
         showGrid={true}
         gridThresholds={vegetableThresholds.map((t) => t.value)}
