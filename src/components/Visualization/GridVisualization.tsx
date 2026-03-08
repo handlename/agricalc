@@ -1,4 +1,5 @@
 import React from "react";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 interface GridVisualizationProps {
   current: number;
@@ -12,6 +13,8 @@ export const GridVisualization: React.FC<GridVisualizationProps> = ({
   thresholds,
   className = "",
 }) => {
+  const { t } = useLanguage();
+
   // 安全な閾値配列の確保
   const safeThresholds = Array.isArray(thresholds) ? thresholds : [];
 
@@ -60,7 +63,7 @@ export const GridVisualization: React.FC<GridVisualizationProps> = ({
               ${grid.isThreshold ? "threshold" : ""}
               ${grid.isMaxAchieved && grid.isFilled ? "max-achieved" : ""}
             `.trim()}
-            title={`${grid.value}${grid.isThreshold ? " (score change)" : ""}`}
+            title={`${grid.value}${grid.isThreshold ? ` (${t("scoreChange")})` : ""}`}
           >
             {grid.isThreshold && <div className="threshold-marker" />}
           </div>

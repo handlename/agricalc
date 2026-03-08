@@ -21,6 +21,35 @@
     font-size: var(--font-size-xl);
 }
 
+.language-switcher {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: var(--spacing-sm);
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 2px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lang-btn.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primary-color);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
 .app-content {
     display: grid;
     grid-template-columns: 1fr 1fr;

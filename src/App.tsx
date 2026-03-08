@@ -10,14 +10,19 @@ import { ScoreBreakdown } from "./components/ScoreDisplay/ScoreBreakdown";
 import { FixedTotalScore } from "./components/ScoreDisplay/FixedTotalScore";
 import { ResetButton } from "./components/Controls/ResetButton";
 import { CopyButton } from "./components/Controls/CopyButton";
+import { LanguageSwitcher } from "./components/Controls/LanguageSwitcher";
+import { useLanguage } from "./i18n/LanguageContext";
 import "./App.css";
 
 function App() {
+  const { t } = useLanguage();
+
   return (
     <GameProvider>
       <div className="app">
         <header className="app-header">
-          <h1>Agricola Score Calculator</h1>
+          <h1>{t("appTitle")}</h1>
+          <LanguageSwitcher />
         </header>
 
         <main className="container">

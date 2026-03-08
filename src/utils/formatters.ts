@@ -1,5 +1,6 @@
 import { GameState } from "../types/game";
 import { ScoreSummary } from "../types/score";
+import { Language, translations } from "../i18n/translations";
 
 export const formatScore = (score: number): string => {
   if (score > 0) {
@@ -11,39 +12,42 @@ export const formatScore = (score: number): string => {
 export const formatScoreToText = (
   state: GameState,
   scoreSummary: ScoreSummary,
+  language: Language,
+  _translations: typeof translations,
 ): string => {
   const { breakdown, total } = scoreSummary;
+  const t = _translations[language];
 
   const lines = [
-    "=== Agricola Score ===",
+    t.scoreHeader,
     "",
-    "--- Farm ---",
-    `Fields (${state.farm.fields}): ${formatScore(breakdown.fields)}`,
-    `Pastures (${state.farm.pastures}): ${formatScore(breakdown.pastures)}`,
-    `Unused Spaces (${state.farm.unusedSpaces}): ${formatScore(breakdown.unusedSpaces)}`,
+    t.farmSection,
+    `${t.fields} (${state.farm.fields}): ${formatScore(breakdown.fields)}`,
+    `${t.pastures} (${state.farm.pastures}): ${formatScore(breakdown.pastures)}`,
+    `${t.unusedSpaces} (${state.farm.unusedSpaces}): ${formatScore(breakdown.unusedSpaces)}`,
     "",
-    "--- Livestock ---",
-    `Sheep (${state.livestock.sheep}): ${formatScore(breakdown.sheep)}`,
-    `Boars (${state.livestock.boars}): ${formatScore(breakdown.boars)}`,
-    `Cattle (${state.livestock.cattle}): ${formatScore(breakdown.cattle)}`,
+    t.livestockSection,
+    `${t.sheep} (${state.livestock.sheep}): ${formatScore(breakdown.sheep)}`,
+    `${t.boars} (${state.livestock.boars}): ${formatScore(breakdown.boars)}`,
+    `${t.cattle} (${state.livestock.cattle}): ${formatScore(breakdown.cattle)}`,
     "",
-    "--- Crops ---",
-    `Grain (${state.crops.grain}): ${formatScore(breakdown.grain)}`,
-    `Vegetables (${state.crops.vegetables}): ${formatScore(breakdown.vegetables)}`,
+    t.cropsSection,
+    `${t.grain} (${state.crops.grain}): ${formatScore(breakdown.grain)}`,
+    `${t.vegetables} (${state.crops.vegetables}): ${formatScore(breakdown.vegetables)}`,
     "",
-    "--- Family & Home ---",
-    `Family Members (${state.family.familyMembers}): ${formatScore(breakdown.familyMembers)}`,
-    `Clay Rooms (${state.family.clayRooms}): ${formatScore(breakdown.clayRooms)}`,
-    `Stone Rooms (${state.family.stoneRooms}): ${formatScore(breakdown.stoneRooms)}`,
+    t.familySection,
+    `${t.familyMembers} (${state.family.familyMembers}): ${formatScore(breakdown.familyMembers)}`,
+    `${t.clayRooms} (${state.family.clayRooms}): ${formatScore(breakdown.clayRooms)}`,
+    `${t.stoneRooms} (${state.family.stoneRooms}): ${formatScore(breakdown.stoneRooms)}`,
     "",
-    "--- Bonus ---",
-    `Fenced Stables (${state.others.fencedStables}): ${formatScore(breakdown.fencedStables)}`,
-    `Begging Cards (${state.others.beggingCards}): ${formatScore(breakdown.beggingCards)}`,
-    `Bonus Points (${state.others.bonusPoints}): ${formatScore(breakdown.bonusPoints)}`,
-    `Penalty Points (${state.others.penaltyPoints}): ${formatScore(breakdown.penaltyPoints)}`,
+    t.bonusSection,
+    `${t.fencedStables} (${state.others.fencedStables}): ${formatScore(breakdown.fencedStables)}`,
+    `${t.beggingCards} (${state.others.beggingCards}): ${formatScore(breakdown.beggingCards)}`,
+    `${t.bonusPoints} (${state.others.bonusPoints}): ${formatScore(breakdown.bonusPoints)}`,
+    `${t.penaltyPoints} (${state.others.penaltyPoints}): ${formatScore(breakdown.penaltyPoints)}`,
     "",
     "==================",
-    `Total Score: ${total}`,
+    `${t.totalScoreLabel}: ${total}`,
     "==================",
   ];
 

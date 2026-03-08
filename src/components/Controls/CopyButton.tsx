@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useGame } from "../../hooks/useGame";
+import { useLanguage } from "../../i18n/LanguageContext";
 import { formatScoreToText } from "../../utils/formatters";
+import { translations } from "../../i18n/translations";
 
 export const CopyButton: React.FC = () => {
   const { state, score } = useGame();
+  const { t, language } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    const text = formatScoreToText(state, score);
+    const text = formatScoreToText(state, score, language, translations);
 
     try {
       await navigator.clipboard.writeText(text);
@@ -30,7 +33,7 @@ export const CopyButton: React.FC = () => {
 
   return (
     <button className="btn-primary" onClick={handleCopy}>
-      {copied ? "Copied!" : "Copy Score"}
+      {copied ? t("copied") : t("copyScore")}
     </button>
   );
 };
