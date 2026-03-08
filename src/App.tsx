@@ -10,6 +10,7 @@ import { ScoreBreakdown } from "./components/ScoreDisplay/ScoreBreakdown";
 import { FixedTotalScore } from "./components/ScoreDisplay/FixedTotalScore";
 import { ResetButton } from "./components/Controls/ResetButton";
 import { CopyButton } from "./components/Controls/CopyButton";
+import { ShareImageButton } from "./components/Controls/ShareImageButton";
 import { LanguageSwitcher } from "./components/Controls/LanguageSwitcher";
 import { useLanguage } from "./i18n/LanguageContext";
 import "./App.css";
@@ -41,6 +42,7 @@ function App() {
                 <ScoreBreakdown />
                 <div className="controls">
                   <CopyButton />
+                  <ShareImageButton />
                   <ResetButton />
                 </div>
               </div>
