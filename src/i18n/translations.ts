@@ -55,6 +55,7 @@ export const translations = {
     copiedImage: "Image Copied!",
     resetAll: "Reset All",
     resetConfirm: "Reset all values?",
+    cancel: "Cancel",
 
     // Accessibility
     decrease: "Decrease {label}",
@@ -133,6 +134,7 @@ export const translations = {
     copiedImage: "画像をコピーしました！",
     resetAll: "リセット",
     resetConfirm: "すべての値をリセットしますか？",
+    cancel: "キャンセル",
 
     // Accessibility
     decrease: "{label}を1減らす",

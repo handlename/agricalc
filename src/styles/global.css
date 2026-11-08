@@ -71,7 +71,11 @@ button {
     cursor: pointer;
     border: none;
     outline: none;
-    transition: all 0.3s ease;
+    transition:
+        background-color 150ms ease-out,
+        border-color 150ms ease-out,
+        box-shadow 150ms ease-out,
+        transform 150ms ease-out;
 }
 
 button:disabled {
@@ -213,7 +217,6 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s;
 }
 
 .btn-adjust:hover:not(:disabled) {
@@ -312,6 +315,45 @@ h6 {
     border-radius: var(--radius-sm);
     font-size: var(--font-size-md);
     font-weight: 500;
+}
+
+.btn-danger {
+    background: var(--error-text);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+}
+
+.btn-danger:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.confirm-dialog {
+    margin: auto;
+    width: min(360px, calc(100% - 2 * var(--spacing-md)));
+    padding: var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    color: var(--text-primary);
+}
+
+.confirm-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.confirm-dialog-title {
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    text-wrap: pretty;
+}
+
+.confirm-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
 }
 
 .btn-secondary:hover {
@@ -471,4 +513,13 @@ h6 {
 .grid-status.is-max {
     font-weight: 600;
     color: var(--primary-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }

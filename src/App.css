@@ -1,5 +1,6 @@
 .app {
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
 }
@@ -33,7 +34,7 @@
     cursor: pointer;
     font-size: var(--font-size-sm);
     font-weight: 600;
-    transition: background 0.2s;
+    transition: background-color 150ms ease-out;
 }
 
 .lang-btn:hover {
