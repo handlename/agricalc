@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 .serena/
+
+# tsc -b が生成する設定ファイルの出力（Vite が .ts より優先して読むためコミットしない）
+vite.config.js
+vite.config.d.ts
