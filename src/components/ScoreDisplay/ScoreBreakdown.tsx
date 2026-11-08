@@ -88,20 +88,22 @@ export const ScoreBreakdown: React.FC = () => {
   ];
 
   return (
-    <div className="score-breakdown">
+    <dl className="score-breakdown">
       {scoreItems.map((item, index) => (
         <div key={index} className="score-item">
-          <div className="score-item-label">
-            {item.icon}
+          <dt className="score-item-label">
+            <span className="input-icon" aria-hidden="true">
+              {item.icon}
+            </span>
             {item.label}
-          </div>
-          <div
+          </dt>
+          <dd
             className={`score-item-value ${item.value < 0 ? "negative" : item.value > 0 ? "positive" : ""}`}
           >
             {formatScore(item.value)}
-          </div>
+          </dd>
         </div>
       ))}
-    </div>
+    </dl>
   );
 };

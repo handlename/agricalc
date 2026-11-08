@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 import { translations, Language, TranslationKey } from "./translations";
 
 interface LanguageContextType {
@@ -22,8 +28,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("agricalc-language", lang);
-    document.documentElement.lang = lang;
   }, []);
+
+  // 初回表示時も含め、<html lang> を現在の言語に同期する
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const t = useCallback(
     (key: TranslationKey): string => {

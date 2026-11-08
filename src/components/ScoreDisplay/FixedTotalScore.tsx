@@ -1,27 +1,23 @@
 import React from "react";
 import { useGame } from "../../hooks/useGame";
 import { useLanguage } from "../../i18n/LanguageContext";
-import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { useElementOffscreen } from "../../hooks/useElementOffscreen";
 import { formatScore } from "../../utils/formatters";
+import { TOTAL_SCORE_ID } from "./ids";
 
 export const FixedTotalScore: React.FC = () => {
   const { score } = useGame();
   const { t } = useLanguage();
-  const { isAtTop, isScrolling } = useScrollPosition();
-
-  // 最上部にいる場合は非表示（元のTotalScoreが見えているため）
-  if (isAtTop) {
-    return null;
-  }
+  // 本体の合計スコアが画面外に出たときだけ表示する
+  const isVisible = useElementOffscreen(TOTAL_SCORE_ID);
 
   return (
     <div
-      className={`fixed-total-score ${isScrolling ? "scrolling" : "static"}`}
+      className={`fixed-total-score ${isVisible ? "is-visible" : ""}`.trim()}
+      aria-hidden={!isVisible}
     >
-      <div className="fixed-score-content">
-        <span className="fixed-score-label">{t("total")}</span>
-        <span className="fixed-score-value">{formatScore(score.total)}</span>
-      </div>
+      <span className="fixed-score-label">{t("total")}</span>
+      <span className="fixed-score-value">{formatScore(score.total)}</span>
     </div>
   );
 };

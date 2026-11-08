@@ -55,9 +55,16 @@ export const translations = {
     copiedImage: "Image Copied!",
     resetAll: "Reset All",
     resetConfirm: "Reset all values?",
+    cancel: "Cancel",
+
+    // Accessibility
+    decrease: "Decrease {label}",
+    increase: "Increase {label}",
+    languageLabel: "Language",
 
     // Grid
-    scoreChange: "score change",
+    toNext: "{n} to next",
+    maxReached: "MAX",
 
     // Formatters (copy text)
     scoreHeader: "=== Agricola Score ===",
@@ -127,9 +134,16 @@ export const translations = {
     copiedImage: "画像をコピーしました！",
     resetAll: "リセット",
     resetConfirm: "すべての値をリセットしますか？",
+    cancel: "キャンセル",
+
+    // Accessibility
+    decrease: "{label}を1減らす",
+    increase: "{label}を1増やす",
+    languageLabel: "言語",
 
     // Grid
-    scoreChange: "スコア変動",
+    toNext: "次まで{n}",
+    maxReached: "MAX",
 
     // Formatters (copy text)
     scoreHeader: "=== アグリコラ スコア ===",
