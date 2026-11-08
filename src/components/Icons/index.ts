@@ -14,3 +14,4 @@ export { BeggingCardIcon } from "./BeggingCardIcon";
 export { PlusIcon } from "./PlusIcon";
 export { MinusIcon } from "./MinusIcon";
 export type { IconProps } from "./types";
+export { ICON_SIZE } from "./sizes";

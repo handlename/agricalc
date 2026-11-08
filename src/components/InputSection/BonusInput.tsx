@@ -1,6 +1,6 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
-import { StableIcon, BeggingCardIcon, PlusIcon, MinusIcon } from "../Icons";
+import { StableIcon, BeggingCardIcon, PlusIcon, MinusIcon, ICON_SIZE } from "../Icons";
 import { useGame } from "../../hooks/useGame";
 import { useLanguage } from "../../i18n/LanguageContext";
 
@@ -19,7 +19,7 @@ export const BonusInput: React.FC = () => {
         min={0}
         max={4}
         label={t("stables")}
-        icon={<StableIcon size={20} />}
+        icon={<StableIcon size={ICON_SIZE.input} />}
       />
       <NumberInput
         value={state.others.beggingCards}
@@ -29,7 +29,7 @@ export const BonusInput: React.FC = () => {
         min={0}
         max={20}
         label={t("beggingCards")}
-        icon={<BeggingCardIcon size={20} />}
+        icon={<BeggingCardIcon size={ICON_SIZE.input} />}
       />
       <NumberInput
         value={state.others.bonusPoints}
@@ -39,7 +39,7 @@ export const BonusInput: React.FC = () => {
         min={0}
         max={99}
         label={t("bonusPoints")}
-        icon={<PlusIcon size={20} />}
+        icon={<PlusIcon size={ICON_SIZE.input} />}
       />
       <NumberInput
         value={state.others.penaltyPoints}
@@ -49,7 +49,7 @@ export const BonusInput: React.FC = () => {
         min={0}
         max={99}
         label={t("penaltyPoints")}
-        icon={<MinusIcon size={20} />}
+        icon={<MinusIcon size={ICON_SIZE.input} />}
       />
     </div>
   );

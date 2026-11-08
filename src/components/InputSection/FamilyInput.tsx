@@ -1,6 +1,6 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
-import { FamilyIcon, ClayRoomIcon, StoneRoomIcon } from "../Icons";
+import { FamilyIcon, ClayRoomIcon, StoneRoomIcon, ICON_SIZE } from "../Icons";
 import { useGame } from "../../hooks/useGame";
 import { useLanguage } from "../../i18n/LanguageContext";
 
@@ -19,7 +19,7 @@ export const FamilyInput: React.FC = () => {
         min={2}
         max={5}
         label={t("family")}
-        icon={<FamilyIcon size={20} />}
+        icon={<FamilyIcon size={ICON_SIZE.input} />}
       />
       <NumberInput
         value={state.family.clayRooms}
@@ -29,7 +29,7 @@ export const FamilyInput: React.FC = () => {
         min={0}
         max={15}
         label={t("clayRooms")}
-        icon={<ClayRoomIcon size={20} />}
+        icon={<ClayRoomIcon size={ICON_SIZE.input} />}
       />
       <NumberInput
         value={state.family.stoneRooms}
@@ -39,7 +39,7 @@ export const FamilyInput: React.FC = () => {
         min={0}
         max={15}
         label={t("stoneRooms")}
-        icon={<StoneRoomIcon size={20} />}
+        icon={<StoneRoomIcon size={ICON_SIZE.input} />}
       />
     </div>
   );
