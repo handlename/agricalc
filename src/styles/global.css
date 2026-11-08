@@ -406,109 +406,48 @@ h6 {
 
 /* Grid Visualization Styles */
 .grid-visualization {
-    padding: var(--spacing-xs);
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-sm);
 }
 
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 3px;
-    max-width: 320px;
+    gap: 6px;
+}
+
+.grid-group {
+    display: flex;
+    gap: 2px;
 }
 
 .grid-cell {
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--border-color);
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--border-color);
     border-radius: 3px;
-    position: relative;
     background: var(--card-background);
-    transition: all 0.3s ease;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .grid-cell.filled {
-    background: linear-gradient(
-        135deg,
-        var(--primary-color),
-        var(--secondary-color)
-    );
+    background: var(--primary-color);
     border-color: var(--primary-color);
-    box-shadow: 0 2px 4px rgba(74, 95, 58, 0.3);
-    transform: scale(1.05);
 }
 
 .grid-cell.filled.max-achieved {
-    background: linear-gradient(135deg, var(--success-color), #2d5f2f);
+    background: var(--success-color);
     border-color: var(--success-color);
-    box-shadow: 0 2px 6px rgba(82, 196, 26, 0.4);
 }
 
-.grid-cell.threshold {
-    border-width: 3px;
-    border-color: var(--accent-color);
-    border-style: dashed;
-    background: rgba(212, 163, 115, 0.1);
+.grid-status {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    white-space: nowrap;
 }
 
-.grid-cell.threshold.filled {
-    border-color: var(--warning-color);
-    border-style: solid;
-    background: linear-gradient(
-        135deg,
-        var(--primary-color),
-        var(--warning-color)
-    );
-}
-
-.threshold-marker {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    width: 8px;
-    height: 8px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.grid-cell.filled .threshold-marker {
-    background: var(--warning-color);
-}
-
-@media (max-width: 480px) {
-    .grid-cell {
-        width: 12px;
-        height: 12px;
-        border-width: 1px;
-    }
-
-    .grid-cell.threshold {
-        border-width: 2px;
-    }
-
-    .grid-container {
-        max-width: 200px;
-        gap: 1px;
-    }
-
-    .grid-visualization {
-        padding: 2px;
-    }
-
-    .grid-visualization-container {
-        min-height: 30px;
-    }
-
-    .threshold-marker {
-        width: 4px;
-        height: 4px;
-        top: -2px;
-        right: -2px;
-        border-width: 1px;
-    }
-
+.grid-status.is-max {
+    font-weight: 600;
+    color: var(--primary-color);
 }

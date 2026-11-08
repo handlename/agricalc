@@ -57,7 +57,8 @@ export const translations = {
     resetConfirm: "Reset all values?",
 
     // Grid
-    scoreChange: "score change",
+    toNext: "{n} to next",
+    maxReached: "MAX",
 
     // Formatters (copy text)
     scoreHeader: "=== Agricola Score ===",
@@ -129,7 +130,8 @@ export const translations = {
     resetConfirm: "すべての値をリセットしますか？",
 
     // Grid
-    scoreChange: "スコア変動",
+    toNext: "次まで{n}",
+    maxReached: "MAX",
 
     // Formatters (copy text)
     scoreHeader: "=== アグリコラ スコア ===",
