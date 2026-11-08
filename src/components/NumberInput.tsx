@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useId } from "react";
 import { GridVisualization } from "./Visualization/GridVisualization";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface NumberInputProps {
   value: number;
   onChange: (value: number) => void;
   min?: number;
   max?: number;
-  label?: React.ReactNode;
+  label: string;
   icon?: React.ReactNode;
   showGrid?: boolean;
   gridThresholds?: number[];
@@ -22,6 +23,9 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   showGrid = false,
   gridThresholds = [],
 }) => {
+  const { t } = useLanguage();
+  const inputId = useId();
+
   const handleDecrement = () => {
     if (value > min) {
       onChange(value - 1);
@@ -46,23 +50,26 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   return (
     <div className="input-group-with-grid">
       <div className="input-group">
-        {label && (
-          <div className="input-label">
+        <label className="input-label" htmlFor={inputId}>
+          <span className="input-icon" aria-hidden="true">
             {icon}
-            {label}
-          </div>
-        )}
+          </span>
+          {label}
+        </label>
         <div className="number-input-container">
           <button
             className="btn-adjust"
             onClick={handleDecrement}
             disabled={value <= min}
             type="button"
+            aria-label={t("decrease").replace("{label}", label)}
           >
             −
           </button>
           <input
+            id={inputId}
             type="number"
+            inputMode="numeric"
             className="number-input"
             value={value}
             onChange={handleInputChange}
@@ -74,6 +81,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
             onClick={handleIncrement}
             disabled={value >= max}
             type="button"
+            aria-label={t("increase").replace("{label}", label)}
           >
             +
           </button>

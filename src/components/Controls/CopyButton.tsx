@@ -32,8 +32,13 @@ export const CopyButton: React.FC = () => {
   };
 
   return (
-    <button className="btn-primary" onClick={handleCopy}>
-      {copied ? t("copied") : t("copyScore")}
-    </button>
+    <>
+      <button className="btn-primary" onClick={handleCopy} type="button">
+        {copied ? t("copied") : t("copyScore")}
+      </button>
+      <span className="visually-hidden" role="status">
+        {copied ? t("copied") : ""}
+      </span>
+    </>
   );
 };

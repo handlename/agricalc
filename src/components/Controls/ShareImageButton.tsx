@@ -57,8 +57,13 @@ export const ShareImageButton: React.FC = () => {
         : t("shareImage");
 
   return (
-    <button className="btn-primary" onClick={handleShare}>
-      {label}
-    </button>
+    <>
+      <button className="btn-primary" onClick={handleShare} type="button">
+        {label}
+      </button>
+      <span className="visually-hidden" role="status">
+        {status === "idle" ? "" : label}
+      </span>
+    </>
   );
 };

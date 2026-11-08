@@ -56,6 +56,11 @@ export const translations = {
     resetAll: "Reset All",
     resetConfirm: "Reset all values?",
 
+    // Accessibility
+    decrease: "Decrease {label}",
+    increase: "Increase {label}",
+    languageLabel: "Language",
+
     // Grid
     toNext: "{n} to next",
     maxReached: "MAX",
@@ -128,6 +133,11 @@ export const translations = {
     copiedImage: "画像をコピーしました！",
     resetAll: "リセット",
     resetConfirm: "すべての値をリセットしますか？",
+
+    // Accessibility
+    decrease: "{label}を1減らす",
+    increase: "{label}を1増やす",
+    languageLabel: "言語",
 
     // Grid
     toNext: "次まで{n}",
