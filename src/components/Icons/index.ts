@@ -10,7 +10,6 @@ export { FamilyIcon } from "./FamilyIcon";
 export { ClayRoomIcon } from "./ClayRoomIcon";
 export { StoneRoomIcon } from "./StoneRoomIcon";
 export { StableIcon } from "./StableIcon";
-export { CardIcon } from "./CardIcon";
 export { BeggingCardIcon } from "./BeggingCardIcon";
 export { PlusIcon } from "./PlusIcon";
 export { MinusIcon } from "./MinusIcon";
