@@ -83,7 +83,11 @@
 
     .score-section {
         position: static;
-        order: -1;
+    }
+
+    /* 下部固定バーの分だけ余白を確保 */
+    .app {
+        padding-bottom: calc(var(--fixed-bar-height) + env(safe-area-inset-bottom));
     }
 
     .app-header h1 {

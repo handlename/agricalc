@@ -37,6 +37,9 @@
     --font-size-lg: 18px;
     --font-size-xl: 24px;
     --font-size-xxl: 32px;
+
+    --z-sticky: 10;
+    --fixed-bar-height: 56px;
 }
 
 html,
@@ -331,76 +334,58 @@ h6 {
 .fixed-total-score {
     position: fixed;
     top: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(74, 95, 58, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 0 0 0 var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    transition: all 0.3s ease;
-    transform: translateY(0);
-}
-
-.fixed-total-score.scrolling {
-    padding: var(--spacing-sm) var(--spacing-md);
-}
-
-.fixed-total-score.static {
-    padding: var(--spacing-md) var(--spacing-lg);
-}
-
-.fixed-score-content {
+    right: var(--spacing-md);
+    z-index: var(--z-sticky);
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary-color);
     color: white;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+    transition:
+        opacity 200ms ease-out,
+        transform 200ms ease-out;
+}
+
+.fixed-total-score.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .fixed-score-label {
     font-size: var(--font-size-xs);
     opacity: 0.9;
-    margin-bottom: var(--spacing-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .fixed-score-value {
-    font-size: var(--font-size-lg);
-    font-weight: bold;
-    line-height: 1;
-}
-
-.fixed-total-score.scrolling .fixed-score-value {
-    font-size: var(--font-size-md);
-}
-
-.fixed-total-score.static .fixed-score-value {
     font-size: var(--font-size-xl);
+    font-weight: bold;
+    line-height: 1.1;
 }
 
 @media (max-width: 768px) {
+    /* スマホでは画面下部のバーとして表示（入力欄と重ならない） */
     .fixed-total-score {
-        right: var(--spacing-sm);
-    }
-
-    .fixed-total-score.scrolling {
-        padding: var(--spacing-xs) var(--spacing-sm);
-    }
-
-    .fixed-total-score.static {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        flex-direction: row;
+        justify-content: space-between;
         padding: var(--spacing-sm) var(--spacing-md);
+        padding-bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom));
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        transform: translateY(100%);
     }
 
-    .fixed-score-value {
-        font-size: var(--font-size-md);
-    }
-
-    .fixed-total-score.scrolling .fixed-score-value {
+    .fixed-score-label {
         font-size: var(--font-size-sm);
-    }
-
-    .fixed-total-score.static .fixed-score-value {
-        font-size: var(--font-size-lg);
     }
 }
 
