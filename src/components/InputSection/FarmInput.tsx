@@ -1,6 +1,6 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
-import { FieldIcon, PastureIcon, UnusedSpaceIcon } from "../Icons";
+import { FieldIcon, PastureIcon, UnusedSpaceIcon, ICON_SIZE } from "../Icons";
 import { useGame } from "../../hooks/useGame";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { fieldThresholds, pastureThresholds } from "../../utils/progressUtils";
@@ -20,7 +20,7 @@ export const FarmInput: React.FC = () => {
         min={0}
         max={15}
         label={t("fields")}
-        icon={<FieldIcon size={20} />}
+        icon={<FieldIcon size={ICON_SIZE.input} />}
         showGrid={true}
         gridThresholds={fieldThresholds.map((t) => t.value)}
       />
@@ -32,7 +32,7 @@ export const FarmInput: React.FC = () => {
         min={0}
         max={15}
         label={t("pastures")}
-        icon={<PastureIcon size={20} />}
+        icon={<PastureIcon size={ICON_SIZE.input} />}
         showGrid={true}
         gridThresholds={pastureThresholds.map((t) => t.value)}
       />
@@ -44,7 +44,7 @@ export const FarmInput: React.FC = () => {
         min={0}
         max={15}
         label={t("unused")}
-        icon={<UnusedSpaceIcon size={20} />}
+        icon={<UnusedSpaceIcon size={ICON_SIZE.input} />}
       />
     </div>
   );

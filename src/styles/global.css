@@ -114,6 +114,7 @@ input:focus-visible {
 
 .input-icon {
     display: inline-flex;
+    flex-shrink: 0;
 }
 
 h1,

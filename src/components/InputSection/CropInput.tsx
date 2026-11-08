@@ -1,6 +1,6 @@
 import React from "react";
 import { NumberInput } from "../NumberInput";
-import { GrainIcon, VegetableIcon } from "../Icons";
+import { GrainIcon, VegetableIcon, ICON_SIZE } from "../Icons";
 import { useGame } from "../../hooks/useGame";
 import { useLanguage } from "../../i18n/LanguageContext";
 import {
@@ -23,7 +23,7 @@ export const CropInput: React.FC = () => {
         min={0}
         max={99}
         label={t("grain")}
-        icon={<GrainIcon size={20} />}
+        icon={<GrainIcon size={ICON_SIZE.input} />}
         showGrid={true}
         gridThresholds={grainThresholds.map((t) => t.value)}
       />
@@ -35,7 +35,7 @@ export const CropInput: React.FC = () => {
         min={0}
         max={99}
         label={t("vegetables")}
-        icon={<VegetableIcon size={20} />}
+        icon={<VegetableIcon size={ICON_SIZE.input} />}
         showGrid={true}
         gridThresholds={vegetableThresholds.map((t) => t.value)}
       />
