@@ -5,11 +5,7 @@
 }
 
 .app-header {
-    background: linear-gradient(
-        135deg,
-        var(--primary-color),
-        var(--secondary-color)
-    );
+    background: var(--primary-color);
     color: white;
     padding: var(--spacing-lg) var(--spacing-md);
     text-align: center;
